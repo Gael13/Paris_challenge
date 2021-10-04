@@ -3,16 +3,16 @@ require 'net/http'
 
 class JobApi
 
-	attr_reader :endpoint, :errors
+  attr_reader :endpoint, :errors
 
-	def initialize(endpoint, jobs)
-		@errors = Hash.new(0)
-	  @endpoint = endpoint
+  def initialize(endpoint, jobs)
+    @errors = Hash.new(0)
+    @endpoint = endpoint
     @jobs   = jobs
     @errors[:jobs] = 'No jobs found in database' if @jobs.blank?
-	end
+  end
 
-	def extract_parity
+  def extract_parity
     jobs_parity = {}
 
     @jobs.each do |job|
@@ -24,8 +24,8 @@ class JobApi
       response = JSON.parse(job_api.body)
 
       unless response['error'].blank?
-      	@errors[:response] = response['error']
-      	return
+        @errors[:response] = response['error']
+        return
       end
 
       jobs_parity = build_parity_response(response['records'], jobs_parity)
@@ -33,23 +33,23 @@ class JobApi
     jobs_parity
   end
 
-	private
+  private
 
-		def get(job)
-		  begin
-		  job_endpoint = parse_uri(job_endpoint(job))
+    def get(job)
+      begin
+      job_endpoint = parse_uri(job_endpoint(job))
 
-		  Net::HTTP::Get.new(job_endpoint).try(&perform)
+      Net::HTTP::Get.new(job_endpoint).try(&perform)
 
-		  rescue SocketError => e
-		    @errors[:endpoint] = 'Can\'t reach Api endpoint'
-		  end
-		end
+      rescue SocketError => e
+        @errors[:endpoint] = 'Can\'t reach Api endpoint'
+      end
+    end
 
-		def build_parity_response(response, jobs_parity)
-			 response.each do |record|
+    def build_parity_response(response, jobs_parity)
+       response.each do |record|
 
-      	emplois = record['fields']['emplois']
+        emplois = record['fields']['emplois']
 
         if jobs_parity[emplois].blank?
           parity = calcul_parity(record['fields']['nombre_d_hommes'], record['fields']['nombre_de_femmes']) 
@@ -66,40 +66,40 @@ class JobApi
 
       end
       jobs_parity
-	  end
+    end
 
-	  def calcul_parity(men_count, women_count)
-	    if men_count && women_count && (men_count && women_count) > 0.0
-	      parity = ((men_count - women_count).abs / ((men_count + women_count) / 2)) * 100
-	    else
-	      parity = 'not applicable'
-	    end
+    def calcul_parity(men_count, women_count)
+      if men_count && women_count && (men_count && women_count) > 0.0
+        parity = ((men_count - women_count).abs / ((men_count + women_count) / 2)) * 100
+      else
+        parity = 'not applicable'
+      end
 
-	    parity
-	  end
+      parity
+    end
 
-	  def job_endpoint(job)
-	  	@endpoint + "&refine.emplois=#{job}"
-	  end
+    def job_endpoint(job)
+      @endpoint + "&refine.emplois=#{job}"
+    end
 
-	  def parse_uri(service_url)
-	    URI.parse(service_url)
-	  end
+    def parse_uri(service_url)
+      URI.parse(service_url)
+    end
 
-	  def http
-	    @_http ||= begin
-	      http_instance             = Net::HTTP.new(parse_uri(@endpoint).host, parse_uri(@endpoint).port)
-	      http_instance.verify_mode = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
-	      http_instance.use_ssl     = true
+    def http
+      @_http ||= begin
+        http_instance             = Net::HTTP.new(parse_uri(@endpoint).host, parse_uri(@endpoint).port)
+        http_instance.verify_mode = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
+        http_instance.use_ssl     = true
 
-	      http_instance
-	    end
-	  end
+        http_instance
+      end
+    end
 
-	  def perform
-	    lambda do |request|
-	      http.request(request)
-	    end
-	  end
+    def perform
+      lambda do |request|
+        http.request(request)
+      end
+    end
 
 end
