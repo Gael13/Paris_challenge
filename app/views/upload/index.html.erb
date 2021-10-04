@@ -1,0 +1,49 @@
+<div class="upload">
+	<%= form_tag({:action => :import}, multipart: true) do %>
+	  <%= file_field_tag :file %>
+	  <p><%= submit_tag( "Import" ) %></p>
+	<% end %>
+</div>
+
+<div class="flash">
+	<% if notice %>
+	  <p class="alert alert-success"><%= notice %></p>
+	<% end %>
+	<% if alert %>
+	  <p class="alert alert-danger"><%= alert %></p>
+	<% end %>
+</div>
+
+
+<div class="upload">
+  <%= button_to 'Call Job Api', file_parity_path, method: :post, class: 'btn', id: 'button' %>
+</div>
+
+<div>
+	<table class="table">
+	  <caption><%= 'Jobs list' %>
+	  </caption>
+	  <thead>
+	    <tr>
+	      <th>Job</th>
+	      <th>Year</th>
+	      <th>Men count</th>
+	      <th>Women count</th>
+	      <th>Parity</th>
+	      <th>Valid parity</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<% @jobs.each do |job| %>
+	    <tr>
+	      <td><%= job[0] %></td>
+	      <td><%= job[1]['year'] %></td>
+	      <td><%= job[1]['nombre_d_hommes'] %></td>
+	      <td><%= job[1]['nombre_de_femmes'] %></td>
+	      <td><%= job[1]['parity'] %></td>
+	      <td><%= job[1]['valid_parity'] %></td>
+	    </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</div>

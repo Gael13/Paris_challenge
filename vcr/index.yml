@@ -1,0 +1,144 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://opendata.paris.fr/api/records/1.0/search/?dataset=bilan-social-effectifs-non-titulaires-permanents&facet=niveau&refine.emplois=CHARGES%20DE%20MISSION%20AGENTS%20D%27EXECUTION
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - opendata.paris.fr
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 02 Oct 2021 00:01:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ratelimit-Remaining:
+      - '4999'
+      Content-Language:
+      - fr
+      Content-Security-Policy:
+      - upgrade-insecure-requests; frame-ancestors 'none'
+      Access-Control-Max-Age:
+      - '1000'
+      Vary:
+      - Accept-Language, Cookie, Host
+      Access-Control-Allow-Headers:
+      - Authorization, X-Requested-With, Origin, ODS-API-Analytics-App, ODS-API-Analytics-Embed-Type,
+        ODS-API-Analytics-Embed-Referrer, ODS-Widgets-Version, Accept
+      X-Ratelimit-Limit:
+      - '5000'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      X-Frame-Options:
+      - DENY
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Ratelimit-Reset:
+      - '2021-10-03 00:00:00+00:00'
+      Strict-Transport-Security:
+      - max-age=15778800
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Ua-Compatible:
+      - IE=edge
+    body:
+      encoding: ASCII-8BIT
+      string: '{"nhits": 12, "parameters": {"dataset": "bilan-social-effectifs-non-titulaires-permanents",
+        "timezone": "UTC", "rows": 10, "start": 0, "format": "json", "facet": ["annee",
+        "collectivite", "type_de_contrat", "emplois", "niveau"]}, "records": [{"datasetid":
+        "bilan-social-effectifs-non-titulaires-permanents", "recordid": "2338e9a8a0c8e6c7aafb141425ae90e7931e8744",
+        "fields": {"nombre_d_hommes": 3.0, "emplois": "CHARGES DE MISSION AGENTS D''EXECUTION",
+        "niveau": "CHARGE DE MISSION AGT D''EXEC.", "type_de_contrat": "Temps Complet",
+        "collectivite": "VILLE DE PARIS", "annee": "2018", "nombre_de_femmes": 0.0},
+        "record_timestamp": "2019-11-18T16:15:30.293000+00:00"}, {"datasetid": "bilan-social-effectifs-non-titulaires-permanents",
+        "recordid": "7a0b3d2b9b432c854a8752bc0621585b9169b87b", "fields": {"nombre_d_hommes":
+        1.0, "emplois": "CHARGES DE MISSION AGENTS D''EXECUTION", "niveau": "CHARGE
+        DE MISSION AGT D''EXEC.", "type_de_contrat": "TEMPS NON COMPLET", "collectivite":
+        "VILLE DE PARIS", "annee": "2018", "nombre_de_femmes": 1.0}, "record_timestamp":
+        "2019-11-18T16:15:30.293000+00:00"}, {"datasetid": "bilan-social-effectifs-non-titulaires-permanents",
+        "recordid": "c20df12aede6eb9ab754c29594339fc204bc544b", "fields": {"nombre_d_hommes":
+        3.0, "emplois": "CHARGES DE MISSION AGENTS D''EXECUTION", "niveau": "CHARGE
+        DE MISSION AGT D''EXEC.", "type_de_contrat": "Temps Complet", "collectivite":
+        "Commune", "annee": "2016", "nombre_de_femmes": 0.0}, "record_timestamp":
+        "2019-11-18T16:15:30.293000+00:00"}, {"datasetid": "bilan-social-effectifs-non-titulaires-permanents",
+        "recordid": "cdd2a5eec41906140a15a1559e1ebf6cc651b83b", "fields": {"nombre_d_hommes":
+        11.0, "emplois": "CHARGES DE MISSION AGENTS D''EXECUTION", "niveau": "CHARGE
+        DE MISSION AGENT D''EXECUTION", "type_de_contrat": "Temps Complet", "collectivite":
+        "Commune", "annee": "2013", "nombre_de_femmes": 2.0}, "record_timestamp":
+        "2019-11-18T16:15:30.293000+00:00"}, {"datasetid": "bilan-social-effectifs-non-titulaires-permanents",
+        "recordid": "97301a0b08834962ea53535a3ad29e6e63468774", "fields": {"nombre_d_hommes":
+        1.0, "emplois": "CHARGES DE MISSION AGENTS D''EXECUTION", "niveau": "CHARGE
+        DE MISSION AGT D''EXEC.", "type_de_contrat": "Temps Incomplet", "collectivite":
+        "Commune", "annee": "2016", "nombre_de_femmes": 1.0}, "record_timestamp":
+        "2019-11-18T16:15:30.293000+00:00"}, {"datasetid": "bilan-social-effectifs-non-titulaires-permanents",
+        "recordid": "437aec9bcddd477da54557d3efda6c343aa252fb", "fields": {"nombre_d_hommes":
+        3.0, "emplois": "CHARGES DE MISSION AGENTS D''EXECUTION", "niveau": "CHARGE
+        DE MISSION AGT D''EXEC.", "type_de_contrat": "Temps Complet", "collectivite":
+        "Commune", "annee": "2017", "nombre_de_femmes": 0.0}, "record_timestamp":
+        "2019-11-18T16:15:30.293000+00:00"}, {"datasetid": "bilan-social-effectifs-non-titulaires-permanents",
+        "recordid": "e589982fdb1dedc343b400ac2925ebc6471032f8", "fields": {"nombre_d_hommes":
+        1.0, "emplois": "CHARGES DE MISSION AGENTS D''EXECUTION", "niveau": "CHARGE
+        DE MISSION AGT D''EXEC.", "type_de_contrat": "temps non complet", "collectivite":
+        "Commune", "annee": "2017", "nombre_de_femmes": 1.0}, "record_timestamp":
+        "2019-11-18T16:15:30.293000+00:00"}, {"datasetid": "bilan-social-effectifs-non-titulaires-permanents",
+        "recordid": "033d35eaafaa806531bb2284ea8fd9ab66d1afbc", "fields": {"nombre_d_hommes":
+        1.0, "emplois": "CHARGES DE MISSION AGENTS D''EXECUTION", "niveau": "CHARGE
+        DE MISSION AGENT D''EXECUTION", "type_de_contrat": "Temps Incomplet", "collectivite":
+        "Commune", "annee": "2014", "nombre_de_femmes": 1.0}, "record_timestamp":
+        "2019-11-18T16:15:30.293000+00:00"}, {"datasetid": "bilan-social-effectifs-non-titulaires-permanents",
+        "recordid": "7d87111b09486e252bccc327a5c895aebbb3b3a2", "fields": {"nombre_d_hommes":
+        3.0, "emplois": "CHARGES DE MISSION AGENTS D''EXECUTION", "niveau": "CHARGE
+        DE MISSION AGENT D''EXECUTION", "type_de_contrat": "Temps Complet", "collectivite":
+        "Commune", "annee": "2015", "nombre_de_femmes": 0.0}, "record_timestamp":
+        "2019-11-18T16:15:30.293000+00:00"}, {"datasetid": "bilan-social-effectifs-non-titulaires-permanents",
+        "recordid": "b49f907db26355ddbde9d8e27792b279dd0ac11e", "fields": {"nombre_d_hommes":
+        1.0, "emplois": "CHARGES DE MISSION AGENTS D''EXECUTION", "niveau": "CHARGE
+        DE MISSION AGENT D''EXECUTION", "type_de_contrat": "Temps Incomplet", "collectivite":
+        "Commune", "annee": "2015", "nombre_de_femmes": 1.0}, "record_timestamp":
+        "2019-11-18T16:15:30.293000+00:00"}], "facet_groups": [{"facets": [{"count":
+        6, "path": "CHARGE DE MISSION AGENT D''EXECUTION", "state": "displayed", "name":
+        "CHARGE DE MISSION AGENT D''EXECUTION"}, {"count": 6, "path": "CHARGE DE MISSION
+        AGT D''EXEC.", "state": "displayed", "name": "CHARGE DE MISSION AGT D''EXEC."}],
+        "name": "niveau"}, {"facets": [{"count": 10, "path": "Commune", "state": "displayed",
+        "name": "Commune"}, {"count": 2, "path": "VILLE DE PARIS", "state": "displayed",
+        "name": "VILLE DE PARIS"}], "name": "collectivite"}, {"facets": [{"count":
+        2, "path": "2013", "state": "displayed", "name": "2013"}, {"count": 2, "path":
+        "2014", "state": "displayed", "name": "2014"}, {"count": 2, "path": "2015",
+        "state": "displayed", "name": "2015"}, {"count": 2, "path": "2016", "state":
+        "displayed", "name": "2016"}, {"count": 2, "path": "2017", "state": "displayed",
+        "name": "2017"}, {"count": 2, "path": "2018", "state": "displayed", "name":
+        "2018"}], "name": "annee"}, {"facets": [{"count": 6, "path": "Temps Complet",
+        "state": "displayed", "name": "Temps Complet"}, {"count": 4, "path": "Temps
+        Incomplet", "state": "displayed", "name": "Temps Incomplet"}, {"count": 1,
+        "path": "TEMPS NON COMPLET", "state": "displayed", "name": "TEMPS NON COMPLET"},
+        {"count": 1, "path": "temps non complet", "state": "displayed", "name": "temps
+        non complet"}], "name": "type_de_contrat"}, {"facets": [{"count": 12, "path":
+        "CHARGES DE MISSION AGENTS D''EXECUTION", "state": "refined", "name": "CHARGES
+        DE MISSION AGENTS D''EXECUTION"}], "name": "emplois"}]}'
+    http_version: 
+  recorded_at: Sat, 02 Oct 2021 00:01:14 GMT
+recorded_with: VCR 3.0.3
